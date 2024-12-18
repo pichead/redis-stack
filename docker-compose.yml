@@ -1,0 +1,23 @@
+version: '3.8'
+
+volumes:
+  redis_data:
+
+networks:
+  custom_network:
+    driver: bridge
+
+services:
+  redis-stack:
+    image: redis/redis-stack:latest
+    container_name: redis-stack
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    environment:
+      - REDIS_PASSWORD=your_secure_password
+    command: ["redis-server", "--requirepass", "your_secure_password"]
+    networks:
+      - custom_network
+    volumes:
+      - redis_data:/data
