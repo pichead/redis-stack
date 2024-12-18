@@ -1,0 +1,5 @@
+REDIS_PASSWORD=your_secure_password
+REDIS_PORT=6379
+REDIS_CONTAINER_NAME=redis-stack
+NETWORK_NAME=custom_network
+VOLUME_NAME=redis_data
